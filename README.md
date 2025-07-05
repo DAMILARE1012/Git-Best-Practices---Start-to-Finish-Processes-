@@ -10,83 +10,100 @@ You'll learn **how to set up a Git project**, create clean and structured workfl
 
 This cheat sheet outlines the step-by-step Git flow to initialize a project, push it to GitHub, collaborate through branches, and release it cleanly.
 
+### 🛠️ Initialize Git (inside your project folder)
+
+**Step 1: Create your project folder and move into it**
+```bash
+mkdir your-project-folder
+cd your-project-folder
 ```
-# 🛠️ Initialize Git (inside your project folder)
 
-# Step 1: Create your project folder and move into it
-  mkdir your-project-folder
-  cd your-project-folder
+**Step 2: Initialize Git inside this folder**
+This creates a hidden `.git/` directory to track your changes.
+```bash
+git init
+```
 
-# Step 2: Initialize Git inside this folder - This creates a hidden .git/ directory to track your changes.
+**📁 Folder structure after setup:**
+```
+my-awesome-project/
+├── .git/         ← Git tracking info
+└── (your files)
+```
 
-  ```
-  git init
-  ```
-  📁 Folder structure after setup:
-  my-awesome-project/
-  ├── .git/         ← Git tracking info
-  └── (your files)
+**Step 3: Create a .gitignore file**
+Tell Git which files/folders to ignore (e.g., we don't want to track `.env` files because they may contain secret credentials)
+```bash
+echo "*.env" > .gitignore
+```
 
-# Step 3: Create a .gitignore file to tell Git which files/folders to ignore
-  # For example, we don't want to track .env files because they may contain secret credentials
-  echo "*.env" > .gitignore
+**Step 4: Stage all changes in the current directory for commit**
+This includes new files, modified files, and deleted files (excluding what's in `.gitignore`)
+```bash
+git add .
+```
 
-# Step 4: Stage all changes in the current directory for commit
-  # This includes new files, modified files, and deleted files (excluding what's in .gitignore)
-  ```
-  git add .
-  ```
-# Step 5: Make your first commit with a descriptive message
-
+**Step 5: Make your first commit with a descriptive message**
+```bash
 git commit -m "chore: initial project setup"
-
-# Step 6:
-git remote add origin
-
-# Step 7:
-git push -u origin master/main. 
 ```
 
-<hr>
-# General Information
-
-1. Use a Clear Branching Strategy: Organize your work using a consistent branching model:
+**Step 6: Connect to remote repository**
+```bash
+git remote add origin https://github.com/username/repository-name.git
 ```
-### 🌳 Branching Strategy
+
+**Step 7: Push to remote repository**
+```bash
+git push -u origin main
+```
+
+---
+
+## 🌳 Branching Strategy
+
+Use a clear branching strategy to organize your work using a consistent branching model:
+
 | **Branch Name**     | **Purpose**                            |
-|---------------------|-----------------------------------------|
-| `main` / `master`   | Production-ready, stable code           |
-| `dev`               | Active development base                 |
-| `feature/*`         | New feature branches                    |
-| `bugfix/*`          | Patches or fixes                        |
-| `release/*`         | Prepares for production release         |
-| `hotfix/*`          | Urgent fix on live product              |
-```
-<hr>
-✍️ 2.  Write Meaningful Commits
+|---------------------|----------------------------------------|
+| `main` / `master`   | Production-ready, stable code          |
+| `dev`               | Active development base                |
+| `feature/*`         | New feature branches                   |
+| `bugfix/*`          | Patches or fixes                       |
+| `release/*`         | Prepares for production release        |
+| `hotfix/*`          | Urgent fix on live product             |
+
+---
+
+## ✍️ Write Meaningful Commits
+
 Keep commits focused and consistent using conventional commit messages:
 
-Type	Description
-feat	✨ New feature
-fix	🐛 Bug fix
-docs	📚 Documentation-only changes
-style	💅 Formatting, no code logic change
-refactor	🔨 Code restructuring
-test	✅ Adding or updating tests
-chore	🔧 Maintenance tasks (e.g., deps, CI)
+| **Type**     | **Description**                                    |
+|--------------|---------------------------------------------------|
+| `feat`       | ✨ New feature                                    |
+| `fix`        | 🐛 Bug fix                                        |
+| `docs`       | 📚 Documentation-only changes                     |
+| `style`      | 💅 Formatting, no code logic change              |
+| `refactor`   | 🔨 Code restructuring                             |
+| `test`       | ✅ Adding or updating tests                       |
+| `chore`      | 🔧 Maintenance tasks (e.g., deps, CI)            |
 
-✅ Example:
-```
+**✅ Example:**
+```bash
 git commit -m "feat: add login endpoint with token-based auth"
-git push -u origin main 
-
+git push -u origin main
 ```
 
+---
 
-- ✅ Final Tips for Professional Git Use
-- ✋ Don’t commit .env, .pem, or secret files
-- 📜 Add a README.md, LICENSE, and CONTRIBUTING.md to every project
-- 🧪 Automate tests via GitHub Actions, GitLab CI, or Jenkins
-- 👨‍🏫 Educate collaborators on your Git workflow
+## 🎯 Final Tips for Professional Git Use
+
+- **🔒 Security:** Don't commit `.env`, `.pem`, or secret files
+- **📋 Documentation:** Add a `README.md`, `LICENSE`, and `CONTRIBUTING.md` to every project
+- **🧪 Automation:** Automate tests via GitHub Actions, GitLab CI, or Jenkins
+- **👨‍🏫 Education:** Educate collaborators on your Git workflow
+- **🔄 Regular Updates:** Keep your local repository in sync with remote changes
+- **📝 Clear Messages:** Write commit messages that explain the "why" not just the "what"
 
 Happy coding! 🎉🔧📦
