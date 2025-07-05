@@ -6,34 +6,37 @@ You'll learn **how to set up a Git project**, create clean and structured workfl
 
 ---
 
-## 📌 Quick Setup Cheat Sheet
+## ⚙️ Quick Setup Cheat Sheet
 
-Here's a complete Git flow for starting and managing a new project:
+This cheat sheet outlines the step-by-step Git flow to initialize a project, push it to GitHub, collaborate through branches, and release it cleanly.
 
 ```bash
-# 🛠️ Initialize project
+# 🛠️ Initialize Git (inside your project folder)
+cd your-project-folder
 git init
 echo "*.env" > .gitignore
 git add .
 git commit -m "chore: initial project setup"
 
-# 🌐 Connect to remote repository
+# 🌐 Connect to the remote repository
 git remote add origin https://github.com/username/project.git
 git branch -M main
 git push -u origin main
 
-# 🌱 Create a feature branch
+# 🌱 Create and work on a feature branch
 git checkout -b feature/user-auth
-# Work and commit
+
+# Add changes and commit
 git add .
 git commit -m "feat: implement JWT-based login"
-# Push and open a PR
+
+# Push your branch and open a pull request
 git push -u origin feature/user-auth
 
-# 🧪 Review & merge, then tag release
+# 🏁 After review and merge, tag your release
 git tag -a v1.0.0 -m "Add authentication module"
 git push origin v1.0.0
-```
+
 <hr>
 🧱 1. Initialize Your Git Repository
 Begin by creating a new project folder and initializing Git:
