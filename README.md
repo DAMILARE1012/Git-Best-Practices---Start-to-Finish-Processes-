@@ -14,26 +14,30 @@ This cheat sheet outlines the step-by-step Git flow to initialize a project, pus
 # 🛠️ Initialize Git (inside your project folder)
 
 # Step 1: Create your project folder and move into it
-mkdir your-project-folder
-cd your-project-folder
+  mkdir your-project-folder
+  cd your-project-folder
 
-# Step 2: Initialize Git inside this folder
-git init
-🧠 This creates a hidden .git/ directory to track your changes.
-📁 Folder structure after setup:
-my-awesome-project/
-├── .git/         ← Git tracking info
-└── (your files)
+# Step 2: Initialize Git inside this folder - This creates a hidden .git/ directory to track your changes.
+
+  ```
+  git init
+  ```
+  📁 Folder structure after setup:
+  my-awesome-project/
+  ├── .git/         ← Git tracking info
+  └── (your files)
 
 # Step 3: Create a .gitignore file to tell Git which files/folders to ignore
-# For example, we don't want to track .env files because they may contain secret credentials
-echo "*.env" > .gitignore
+  # For example, we don't want to track .env files because they may contain secret credentials
+  echo "*.env" > .gitignore
 
 # Step 4: Stage all changes in the current directory for commit
-# This includes new files, modified files, and deleted files (excluding what's in .gitignore)
-git add .
-
+  # This includes new files, modified files, and deleted files (excluding what's in .gitignore)
+  ```
+  git add .
+  ```
 # Step 5: Make your first commit with a descriptive message
+
 git commit -m "chore: initial project setup"
 
 # Step 6:
