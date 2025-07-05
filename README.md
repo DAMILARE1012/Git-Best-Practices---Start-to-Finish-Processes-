@@ -4,7 +4,7 @@ This repository contains best practices from start to finish to ensure clean, co
 Use this as your go-to reference for building scalable workflows, writing meaningful commits, and maintaining a professional Git history across development, testing, and deployment stages.
 
 <hr>
-## 🧱 1. Initialize Your Repository Properly
+###🧱 1. Initialize Your Repository Properly
 
 Start by creating a new project folder and setting up Git:
 
