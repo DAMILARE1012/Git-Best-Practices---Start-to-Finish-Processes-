@@ -12,13 +12,14 @@ This cheat sheet outlines the step-by-step Git flow to initialize a project, pus
 
 ```bash
 # 🛠️ Initialize Git (inside your project folder)
+mkdir your-project-folder
 cd your-project-folder
 git init
 echo "*.env" > .gitignore
 git add .
 git commit -m "chore: initial project setup"
 
-# 🌐 Connect to the remote repository
+# 🌐 Connect to the remote repository (copy the link - https://github.com/username/project.git, after you created a repository on your GitHub). 
 git remote add origin https://github.com/username/project.git
 git branch -M main
 git push -u origin main
