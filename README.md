@@ -97,6 +97,155 @@ git push -u origin main
 
 ---
 
+## 🔄 Pull Request/Merge Request Workflow
+
+Follow these steps for collaborative development:
+
+**Step 1: Create a feature branch**
+```bash
+git checkout -b feature/user-authentication
+```
+
+**Step 2: Make your changes and commit**
+```bash
+git add .
+git commit -m "feat: implement user authentication with JWT"
+```
+
+**Step 3: Push the branch to remote**
+```bash
+git push -u origin feature/user-authentication
+```
+
+**Step 4: Create Pull Request**
+- Go to GitHub/GitLab/Bitbucket
+- Click "New Pull Request" or "New Merge Request"
+- Select your feature branch → main branch
+- Add descriptive title and description
+- Request code review from teammates
+
+**Step 5: Code Review Process**
+- Address reviewer feedback
+- Make additional commits if needed
+- Keep discussions focused and constructive
+
+**Step 6: Merge after approval**
+- Use "Squash and merge" for clean history
+- Delete the feature branch after merge
+
+---
+
+## ⚔️ Conflict Resolution Basics
+
+When Git can't automatically merge changes, follow these steps:
+
+**Step 1: Identify conflicts**
+```bash
+git status
+# Shows files with conflicts
+```
+
+**Step 2: Open conflicted files**
+Look for conflict markers:
+```
+<<<<<<< HEAD
+Your changes
+=======
+Incoming changes
+>>>>>>> branch-name
+```
+
+**Step 3: Resolve conflicts manually**
+- Edit the file to keep desired changes
+- Remove conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`)
+- Test that your code still works
+
+**Step 4: Stage and commit resolution**
+```bash
+git add conflicted-file.js
+git commit -m "fix: resolve merge conflict in user authentication"
+```
+
+**Step 5: Continue with merge/rebase**
+```bash
+git rebase --continue
+# or
+git merge --continue
+```
+
+---
+
+## 🔧 Interactive Rebase for Commit Cleanup
+
+Clean up your commit history before merging:
+
+**Step 1: Start interactive rebase**
+```bash
+git rebase -i HEAD~3  # Last 3 commits
+```
+
+**Step 2: Choose actions for each commit**
+```
+pick f7f3f6d feat: add login form
+squash 310154e fix: typo in login form
+reword a5f4a0d feat: add validation
+```
+
+**Common actions:**
+- `pick` - Keep commit as is
+- `squash` - Merge into previous commit
+- `reword` - Edit commit message
+- `drop` - Remove commit entirely
+
+**Step 3: Edit commit messages**
+- Git will open editor for each reworded commit
+- Write clear, descriptive messages
+
+**Step 4: Force push (if already pushed)**
+```bash
+git push --force-with-lease origin feature/user-auth
+```
+
+---
+
+## 📋 Semantic Versioning for Releases
+
+Follow semantic versioning (SemVer) for consistent releases:
+
+**Version Format: MAJOR.MINOR.PATCH**
+
+| **Version Type** | **When to Use**                        | **Example** |
+|------------------|-----------------------------------------|-------------|
+| **MAJOR**        | Breaking changes                        | `1.0.0 → 2.0.0` |
+| **MINOR**        | New features (backward compatible)     | `1.0.0 → 1.1.0` |
+| **PATCH**        | Bug fixes (backward compatible)       | `1.0.0 → 1.0.1` |
+
+**Step 1: Tag a release**
+```bash
+git tag -a v1.2.3 -m "Release version 1.2.3: Add user dashboard"
+```
+
+**Step 2: Push tags to remote**
+```bash
+git push origin v1.2.3
+# or push all tags
+git push origin --tags
+```
+
+**Step 3: Create GitHub release**
+- Go to GitHub → Releases → New Release
+- Select your tag
+- Add release notes describing changes
+- Attach binaries if needed
+
+**Step 4: Automate versioning**
+Consider tools like:
+- `semantic-release` for Node.js
+- `commitizen` for conventional commits
+- GitHub Actions for automated releases
+
+---
+
 ## 🎯 Final Tips for Professional Git Use
 
 - **🔒 Security:** Don't commit `.env`, `.pem`, or secret files
